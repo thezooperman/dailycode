@@ -14,19 +14,20 @@ namespace problems
         Bonus: Can you do this in one pass?
         */
 
-		public Tuple<int, int> problem1(int[] arr, int k){
-			Tuple<int, int> result = Tuple.Create<int, int>(-1, -1);
+        public Tuple<int, int> problem1(int[] arr, int k)
+        {
+            Tuple<int, int> result = Tuple.Create<int, int>(-1, -1);
             HashSet<int> set = new HashSet<int>();
-			foreach (var number in arr)
-			{
-				var complement = k - number;
-				if (set.Contains(complement))
-						return Tuple.Create<int, int>(complement, number);
-				else
-					set.Add(number);
-			}
+            foreach (var number in arr)
+            {
+                var complement = k - number;
+                if (set.Contains(complement))
+                    return Tuple.Create<int, int>(complement, number);
+                else
+                    set.Add(number);
+            }
 
             return result;
-		}
+        }
     }
 }
