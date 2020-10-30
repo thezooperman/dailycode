@@ -40,7 +40,7 @@ namespace problems
             arr = new int[] { 3, 4, -1, 1 };
             System.Console.Write("Problem 4: ");
             int res4 = new Problem4().problem4(arr);
-            System.Console.Write(res4);
+            System.Console.WriteLine(res4);
             // Expected output == 2
             Debug.Assert(res4 == 2);
         }
