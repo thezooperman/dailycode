@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace problems
 {
@@ -18,7 +19,18 @@ namespace problems
 
         public int problem4(int[] arr)
         {
-            throw NotImplementedException();
+            int minPositiveNumber = 1;
+
+            HashSet<int> set = new HashSet<int>(arr);
+
+            while (true)
+            {
+                if (!set.Contains(minPositiveNumber))
+                    return minPositiveNumber;
+
+                minPositiveNumber++;
+            }
+            return minPositiveNumber;
         }
     }
 }
