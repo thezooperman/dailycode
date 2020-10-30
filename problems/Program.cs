@@ -43,6 +43,11 @@ namespace problems
             System.Console.WriteLine(res4);
             // Expected output == 2
             Debug.Assert(res4 == 2);
+
+            // Problem 6
+            var prob6 = new Problem6().problem6();
+            System.Console.WriteLine($"Problem 6: {prob6}");
+            Debug.Assert(prob6 == 2);
         }
     }
 }
