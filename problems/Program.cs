@@ -48,6 +48,10 @@ namespace problems
             var prob6 = new Problem6().problem6();
             System.Console.WriteLine($"Problem 6: {prob6}");
             Debug.Assert(prob6 == 2);
+
+            // Problem 7
+            var prob7 = new Problem7().problem7("111");
+            System.Console.WriteLine($"Problem 7: {prob7}");
         }
     }
 }
