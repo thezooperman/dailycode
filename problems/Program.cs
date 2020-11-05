@@ -52,6 +52,24 @@ namespace problems
             // Problem 7
             var prob7 = new Problem7().problem7("111");
             System.Console.WriteLine($"Problem 7: {prob7}");
+
+            // Problem simple ecryption
+            var encr = new SimpleEncryptedString().encrypt("This is a test!", 1);
+            System.Console.WriteLine($"Problem encrypted string: {encr}");
+            Debug.Assert(encr == "hsi  etTi sats!");
+
+            var decrypt = new SimpleEncryptedString().decrypt(encr, 1);
+            System.Console.WriteLine($"Problem decrypted string: {decrypt}");
+            Debug.Assert(decrypt == "This is a test!");
+
+            encr = new SimpleEncryptedString().encrypt("This is a test!", 2);
+            System.Console.WriteLine($"Problem encrypted string: {encr}");
+            Debug.Assert(encr == "s eT ashi tist!");
+
+            decrypt = new SimpleEncryptedString().decrypt(encr, 2);
+            System.Console.WriteLine($"Problem decrypted string: {decrypt}");
+            Debug.Assert(decrypt == "This is a test!");
+
         }
     }
 }
