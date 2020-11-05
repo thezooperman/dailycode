@@ -70,6 +70,11 @@ namespace problems
             System.Console.WriteLine($"Problem decrypted string: {decrypt}");
             Debug.Assert(decrypt == "This is a test!");
 
+            // Sort odd in-place
+            var arrVal = new int[6] { 5, 3, 2, 8, 1, 4 };
+            var output = new Kata().SortArray(arrVal);
+            System.Console.Write("Sort Odd Values in Array: ");
+            output.ToList().ForEach(x => System.Console.Write((x) + " "));
         }
     }
 }
