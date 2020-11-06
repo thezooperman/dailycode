@@ -29,7 +29,6 @@ namespace problems
 
                 minPositiveNumber++;
             }
-            return minPositiveNumber;
         }
     }
 }
