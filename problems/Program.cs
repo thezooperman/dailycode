@@ -75,6 +75,14 @@ namespace problems
             var output = new Kata().SortArray(arrVal);
             System.Console.Write("Sort Odd Values in Array: ");
             output.ToList().ForEach(x => System.Console.Write((x) + " "));
+            Debug.Assert(output.SequenceEqual(new int[] { 1, 3, 2, 8, 5, 4 }));
+
+            // Unival tree
+            var prob8 = new Problem8();
+            prob8.hydrateTree();
+            int unival = prob8.problem8();
+            System.Console.WriteLine($"\nProblem 8: {unival}");
+            Debug.Assert(unival == 5, "Unival count should be 5");
         }
     }
 }
