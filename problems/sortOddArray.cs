@@ -13,10 +13,9 @@ namespace problems
             if (array == null || array.Length == 0)
                 return array;
 
-            var list = new List<int>(array);
-            var oddNumbers = list.Where(x => x % 2 == 1).OrderBy(x => x).ToList();
+            var oddNumbers = array.Where(x => x % 2 == 1).OrderBy(x => x).ToList();
             var oddIndex = 0;
-            return list.Select(x => (x % 2 == 1) ? oddNumbers[oddIndex++] : x).ToArray();
+            return array.Select(x => (x % 2 == 1) ? oddNumbers[oddIndex++] : x).ToArray();
         }
     }
 }
