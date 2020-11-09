@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
@@ -83,6 +84,18 @@ namespace problems
             int unival = prob8.problem8();
             System.Console.WriteLine($"\nProblem 8: {unival}");
             Debug.Assert(unival == 5, "Unival count should be 5");
+
+            // Find all anagrams in a string
+            var anagram = new AllAnagramsInString();
+            IList<int> expectedOutput = anagram.FindAnagrams("cbaebabacd", "abc");
+            System.Console.Write("Problem: All anagrams index in String: ");
+            expectedOutput.ToList().ForEach(x => System.Console.Write((x) + " "));
+            Debug.Assert(expectedOutput.SequenceEqual(new int[2] { 0, 6 }));
+
+            expectedOutput = anagram.FindAnagrams("abab", "ab");
+            System.Console.Write("\nProblem: All anagrams index in String: ");
+            expectedOutput.ToList().ForEach(x => System.Console.Write((x) + " "));
+            Debug.Assert(expectedOutput.SequenceEqual(new int[3] { 0, 1, 2 }));
         }
     }
 }
