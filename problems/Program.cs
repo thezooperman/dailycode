@@ -96,6 +96,15 @@ namespace problems
             System.Console.Write("\nProblem: All anagrams index in String: ");
             expectedOutput.ToList().ForEach(x => System.Console.Write((x) + " "));
             Debug.Assert(expectedOutput.SequenceEqual(new int[3] { 0, 1, 2 }));
+
+            // Problem 9
+            int prob9 = new Problem9().problem9(new int[5] { 2, 4, 6, 2, 5 });
+            System.Console.WriteLine($"\nProblem 9: {prob9}");
+            Debug.Assert(prob9 == 13);
+
+            prob9 = new Problem9().problem9(new int[4] { 5, 1, 1, 5 });
+            System.Console.WriteLine($"Problem 9: {prob9}");
+            Debug.Assert(prob9 == 10);
         }
     }
 }
