@@ -35,16 +35,15 @@ namespace problems
             current.IsWord = text;
         }
 
-        private IEnumerable<String> searchUtil(Node node)
+        private String searchUtil(Node node)
         {
             if (!String.IsNullOrEmpty(node.IsWord))
-                yield return node.IsWord;
+                return node.IsWord;
 
             foreach (var elem in node.Children)
-            {
                 this.searchUtil(elem.Value);
-            }
 
+            return string.Empty;
         }
 
         public IEnumerable<string> Search(string text)
@@ -60,7 +59,6 @@ namespace problems
             }
 
             yield return this.searchUtil(current);
-
         }
     }
 }

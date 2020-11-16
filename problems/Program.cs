@@ -85,7 +85,6 @@ namespace problems
             System.Console.WriteLine($"\nProblem 8: {unival}");
             Debug.Assert(unival == 5, "Unival count should be 5");
 
-<<<<<<< HEAD
             // Find all anagrams in a string
             var anagram = new AllAnagramsInString();
             IList<int> expectedOutput = anagram.FindAnagrams("cbaebabacd", "abc");
@@ -106,7 +105,7 @@ namespace problems
             prob9 = new Problem9().problem9(new int[4] { 5, 1, 1, 5 });
             System.Console.WriteLine($"Problem 9: {prob9}");
             Debug.Assert(prob9 == 10);
-=======
+
             // Problem 11
             var problem11 = new Problem11();
             problem11.Add("dog");
@@ -116,7 +115,14 @@ namespace problems
             var results = problem11.Search("de");
             results.ToList().ForEach(x => System.Console.Write(x + " "));
 
->>>>>>> 971a98c... problem 11
+            // Problem Delete Multiple Items
+            var delItem = new DeleteMultipleItems();
+            int[] actual = delItem.DeleteNth(new int[] { 1, 1, 3, 3, 7, 2, 2, 2, 2 }, 3);
+            var expected = new int[] { 1, 1, 3, 3, 7, 2, 2, 2 };
+
+            Debug.Assert(expected.SequenceEqual(actual));
+
         }
+
     }
 }
