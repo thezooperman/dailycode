@@ -5,6 +5,14 @@ namespace problems
 {
     class Problem11
     {
+        /*
+            Implement an autocomplete system. That is, given a query string s and a
+            set of all possible query strings, return all strings in the set that have
+            s as a prefix.
+
+            For example, given the query string de and the set of strings [dog, deer, deal],
+            return [deer, deal].
+        */
         internal class Node
         {
             public char Value { get; set; }
@@ -35,15 +43,22 @@ namespace problems
             current.IsWord = text;
         }
 
-        private String searchUtil(Node node)
+        private IEnumerable<string> searchUtil(Node node)
         {
-            if (!String.IsNullOrEmpty(node.IsWord))
-                return node.IsWord;
+            var result = new List<string>();
 
-            foreach (var elem in node.Children)
-                this.searchUtil(elem.Value);
+            if (node == null)
+                return result;
 
-            return string.Empty;
+            if (!string.IsNullOrEmpty(node.IsWord))
+                result.Add(node.IsWord);
+
+            foreach (var kvp in node.Children)
+            {
+                result.AddRange(searchUtil(kvp.Value));
+            }
+
+            return result;
         }
 
         public IEnumerable<string> Search(string text)
@@ -55,10 +70,9 @@ namespace problems
                 if (current.Children.ContainsKey(letter))
                     current = current.Children[letter];
                 else
-                    yield return String.Empty;
+                    return new List<String>();
             }
-
-            yield return this.searchUtil(current);
+            return this.searchUtil(current);
         }
     }
 }

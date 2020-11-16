@@ -113,7 +113,9 @@ namespace problems
             problem11.Add("deal");
 
             var results = problem11.Search("de");
+            System.Console.Write("Problem 11: ");
             results.ToList().ForEach(x => System.Console.Write(x + " "));
+            Debug.Assert(results.SequenceEqual(new string[] { "deer", "deal" }));
 
             // Problem Delete Multiple Items
             var delItem = new DeleteMultipleItems();
