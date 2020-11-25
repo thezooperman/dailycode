@@ -124,7 +124,26 @@ namespace problems
 
             Debug.Assert(expected.SequenceEqual(actual));
 
-        }
+            // Problem 16
+            // input = 100
+            var prob16 = new Problem16();
+            var prob16Expected = prob16.problem16();
+            System.Console.WriteLine($"\nProblem 16: {prob16Expected}");
+            Debug.Assert(prob16Expected == 95);
 
+            // Problem 22
+            var prob22 = new Problem22();
+            var text = "thequickbrownfox";
+            var dic = new string[] { "quick", "brown", "the", "fox" };
+            var prob22Output = prob22.problem22(text, dic);
+            System.Console.Write("Problem 22: ");
+            prob22Output.ToList().ForEach(_ => System.Console.Write(_ + " "));
+            Debug.Assert(prob22Output.SequenceEqual(new string[] { "the", "quick", "brown", "fox" }));
+
+            var prob22Other = prob22.prob22Another("bedbathandbeyond", new string[] {"bed", "bath", "bedbath", "and",
+            "beyond"});
+            System.Console.Write("\nProblem 22: ");
+            prob22Other.ToList().ForEach(_ => System.Console.Write(_ + " "));
+        }
     }
 }
