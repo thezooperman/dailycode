@@ -144,6 +144,11 @@ namespace problems
             "beyond"});
             System.Console.Write("\nProblem 22: ");
             prob22Other.ToList().ForEach(_ => System.Console.Write(_ + " "));
+
+            // Problem 26
+            var prob26 = new Problem26();
+            var prob26Output = prob26.problem26(2);
+            System.Console.WriteLine($"\nProblem 26: {prob26Output}");
         }
     }
 }
