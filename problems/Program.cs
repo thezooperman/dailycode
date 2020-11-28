@@ -117,6 +117,24 @@ namespace problems
             results.ToList().ForEach(x => System.Console.Write(x + " "));
             Debug.Assert(results.SequenceEqual(new string[] { "deer", "deal" }));
 
+            // Problem 12
+            var problem12 = new Problem12();
+            var output12 = problem12.problem12(5, new int[] { 1, 3, 5 });
+            System.Console.Write($"\nProblem 12: {output12}");
+            Debug.Assert(output12 == 5);
+
+            // Problem 13
+            var prob13 = new Problem13();
+            string output13 = prob13.problem13(text: "abcba", k: 2);
+            System.Console.WriteLine($"\nProblem 13: {output13}");
+            Debug.Assert(output13 == "bcb");
+            output13 = prob13.problem13("aabbcc", 2);
+            System.Console.Write($"Problem 13: {output13}");
+            Debug.Assert(output13 == "aabb" || output13 == "bbcc");
+            output13 = prob13.problem13("aabbcc", 3);
+            System.Console.Write($"\nProblem 13: {output13}");
+            Debug.Assert(output13 == "aabbcc");
+
             // Problem Delete Multiple Items
             var delItem = new DeleteMultipleItems();
             int[] actual = delItem.DeleteNth(new int[] { 1, 1, 3, 3, 7, 2, 2, 2, 2 }, 3);
