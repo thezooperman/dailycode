@@ -40,13 +40,16 @@ namespace problems
                     // and hack to reset the SB to include text[1:] + current 
                     var keys = sb.ToString();
                     keys = keys.Remove(keys.Length - 1);
-                    result = result.Length > sb.ToString().Length ? result : keys;
+                    result = result.Length > keys.Length ? result : keys;
                     counter.Remove(text[index]);
                     sb.Clear();
                     sb.Append(string.Join("", keys.Skip(1).ToList()) + current);
                     index++;
                 }
             }
+
+            if (counter.Count < k)
+                return string.Empty;
             // if counter did not match k, probably entire string matches
             return result == string.Empty ? text : result;
         }
