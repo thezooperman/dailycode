@@ -145,6 +145,12 @@ namespace problems
 
             Debug.Assert(expected.SequenceEqual(actual));
 
+            // Problem 15
+            var prob15 = new Problem15();
+            IEnumerable<int> prob15Output = prob15.problem15(10);
+            System.Console.Write("\nProblem 15: ");
+            prob15Output.ToList().ForEach(_ => System.Console.Write(_ + " "));
+
             // Problem 16
             // input = 100
             var prob16 = new Problem16();
