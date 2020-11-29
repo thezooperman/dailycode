@@ -158,6 +158,15 @@ namespace problems
             System.Console.WriteLine($"\nProblem 16: {prob16Expected}");
             Debug.Assert(prob16Expected == 95);
 
+            // Problem 17
+            var prob17 = new Problem17();
+            int prob17Output = prob17.problem17("dir\n\tsubdir1\n\tsubdir2\n\t\tfile.ext");
+            System.Console.WriteLine($"Problem 17: {prob17Output}");
+            Debug.Assert(prob17Output == 20);
+            prob17Output = prob17.problem17("dir\n\tsubdir1\n\t\tfile1.ext\n\t\tsubsubdir1\n\tsubdir2\n\t\tsubsubdir2\n\t\t\tfile2.ext");
+            System.Console.WriteLine($"Problem 17: {prob17Output}");
+            Debug.Assert(prob17Output == 32);
+
             // Problem 22
             var prob22 = new Problem22();
             var text = "thequickbrownfox";
