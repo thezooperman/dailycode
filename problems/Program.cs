@@ -134,6 +134,9 @@ namespace problems
             output13 = prob13.problem13("aabbcc", 3);
             System.Console.Write($"\nProblem 13: {output13}");
             Debug.Assert(output13 == "aabbcc");
+            output13 = prob13.problem13("aabbcc", 4);
+            System.Console.Write($"\nProblem 13: {output13}");
+            Debug.Assert(output13 == String.Empty);
 
             // Problem Delete Multiple Items
             var delItem = new DeleteMultipleItems();
