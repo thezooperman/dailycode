@@ -172,6 +172,11 @@ namespace problems
             IEnumerable<int> prob18Output = prob18.problem18(array: new int[] { 10, 5, 2, 7, 8, 7 }, k: 3);
             System.Console.Write("Problem 18: ");
             prob18Output.ToList().ForEach(_ => System.Console.Write(_ + " "));
+            prob18Output = prob18.problem18Optimized(array: new int[] { 11, 12, 13, 12, 14, 11, 10, 9 }, k: 3);
+            System.Console.Write("\nProblem 18: ");
+            prob18Output.ToList().ForEach(_ => System.Console.Write(_ + " "));
+
+
 
             // Problem 22
             var prob22 = new Problem22();

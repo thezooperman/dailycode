@@ -23,6 +23,8 @@ namespace problems
             print them out as you compute them.
         */
 
+
+        // O(nk)
         public IEnumerable<int> problem18(int[] array, int k)
         {
             if (array == null || k <= 0 || array.Length == 0)
@@ -30,6 +32,44 @@ namespace problems
 
             for (int i = 0; i <= array.Length - k; i++)
                 yield return array.AsSpan(i, k).ToArray().Max();
+        }
+
+        // O(n)
+        public IEnumerable<int> problem18Optimized(int[] array, int k)
+        {
+            LinkedList<int> deque = new LinkedList<int>();
+            int i = 0;
+
+            // Find the first max in the window
+            for (; i < k; i++)
+            {
+                while (deque.Count > 0 && array[deque.Last.Value] <= array[i])
+                    deque.RemoveLast();
+
+                deque.AddLast(i);
+            }
+
+            // iterate through the rest of the element
+            for (; i < array.Length; i++)
+            {
+                // the first element is greatest, within the window, at this point
+                yield return array[deque.First.Value];
+
+                // Remove the elements which are out of window
+                while (deque.Count > 0 && deque.First.Value <= i - k)
+                    deque.RemoveFirst();
+
+                // Remove the smaller elements
+                while (deque.Count > 0 && array[deque.Last.Value] <= array[i])
+                    deque.RemoveLast();
+
+                // add the element which is greater than the current
+                deque.AddLast(i);
+            }
+
+            // Return the first element, which is greatest in the window
+            if (deque.Count > 0)
+                yield return array[deque.First.Value];
         }
     }
 }
