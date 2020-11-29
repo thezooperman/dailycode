@@ -167,12 +167,18 @@ namespace problems
             System.Console.WriteLine($"Problem 17: {prob17Output}");
             Debug.Assert(prob17Output == 32);
 
+            // Problem 18
+            var prob18 = new Problem18();
+            IEnumerable<int> prob18Output = prob18.problem18(array: new int[] { 10, 5, 2, 7, 8, 7 }, k: 3);
+            System.Console.Write("Problem 18: ");
+            prob18Output.ToList().ForEach(_ => System.Console.Write(_ + " "));
+
             // Problem 22
             var prob22 = new Problem22();
             var text = "thequickbrownfox";
             var dic = new string[] { "quick", "brown", "the", "fox" };
             var prob22Output = prob22.problem22(text, dic);
-            System.Console.Write("Problem 22: ");
+            System.Console.Write("\nProblem 22: ");
             prob22Output.ToList().ForEach(_ => System.Console.Write(_ + " "));
             Debug.Assert(prob22Output.SequenceEqual(new string[] { "the", "quick", "brown", "fox" }));
 
