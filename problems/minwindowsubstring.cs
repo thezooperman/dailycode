@@ -94,5 +94,63 @@ namespace problems
             System.Console.WriteLine(str.Substring(start_index, min_len));
             return start_index;
         }
+
+        public string minWindowOther(string s, string t)
+        {
+            if (t.Length > s.Length)
+                return String.Empty;
+
+            IDictionary<char, int> map = new Dictionary<char, int>();
+            IDictionary<char, int> charsMap = new Dictionary<char, int>();
+
+            for (int i = 0; i < t.Length; i++)
+            {
+                if (map.ContainsKey(t[i]))
+                    map[t[i]]++;
+                else
+                    map.Add(t[i], 1);
+            }
+
+            int startIndex = 0, count = 0, start = 0, minWindow = Int32.MaxValue;
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                var currentChar = s[i];
+
+                if (charsMap.ContainsKey(currentChar))
+                    charsMap[currentChar]++;
+                else
+                    charsMap.Add(currentChar, 1);
+
+                int _ = 0;
+                if (map.TryGetValue(currentChar, out _))
+                    if (charsMap[currentChar] <= map[currentChar] && map[currentChar] != 0)
+                        count++;
+
+                if (count == t.Length)
+                {
+                    while (true)
+                    {
+                        _ = 0;
+                        if (map.TryGetValue(s[start], out _))
+                        {
+                            if (charsMap[s[start]] <= map[s[start]])
+                                break;
+                            charsMap[s[start]]--;
+                        }
+                        start++;
+                    }
+
+                    if (minWindow > i - start + 1)
+                    {
+                        minWindow = i - start + 1;
+                        // count = 0;
+                        startIndex = start;
+                    }
+                }
+            }
+
+            return s.Substring(startIndex, minWindow);
+        }
     }
 }
