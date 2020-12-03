@@ -196,6 +196,11 @@ namespace problems
             var prob26 = new Problem26();
             var prob26Output = prob26.problem26(2);
             System.Console.WriteLine($"\nProblem 26: {prob26Output}");
+
+            // Problem min window
+            var minWindow = new MinWindowProblem();
+            var minOutput = minWindow.minWindow("this is a test string", "tist");
+            System.Console.WriteLine($"Min Window: {minOutput}");
         }
     }
 }
