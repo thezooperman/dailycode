@@ -176,8 +176,6 @@ namespace problems
             System.Console.Write("\nProblem 18: ");
             prob18Output.ToList().ForEach(_ => System.Console.Write(_ + " "));
 
-
-
             // Problem 22
             var prob22 = new Problem22();
             var text = "thequickbrownfox";
@@ -205,6 +203,15 @@ namespace problems
             minOutput = minWindow.minWindowOther("a", "b");
             System.Console.WriteLine($"Min Window: {minOutput}");
             Debug.Assert(minOutput == "");
+
+            // Remove duplicates recursively
+            var remDups = new RemoveDuplicates();
+            string dupOutput = remDups.removeDuplicates("careermonk");
+            System.Console.WriteLine($"Remove duplicates: {dupOutput}");
+            Debug.Assert(dupOutput == "camonk");
+            dupOutput = remDups.removeDuplicates("geeksforgeeg");
+            System.Console.WriteLine($"Remove duplicates: {dupOutput}");
+            Debug.Assert(dupOutput == "gksfor");
         }
     }
 }
