@@ -199,9 +199,12 @@ namespace problems
 
             // Problem min window
             var minWindow = new MinWindowProblem();
-            var minOutput = minWindow.minWindowOther("this is a test string", "tist");
+            String minOutput = minWindow.minWindowOther("this is a test string", "tist");
             System.Console.WriteLine($"Min Window: {minOutput}");
             Debug.Assert(minOutput == "t stri");
+            minOutput = minWindow.minWindowOther("a", "b");
+            System.Console.WriteLine($"Min Window: {minOutput}");
+            Debug.Assert(minOutput == "");
         }
     }
 }
