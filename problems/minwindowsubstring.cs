@@ -96,16 +96,16 @@ namespace problems
         }
 
         /// O(n) solution - This is a HARD problem
-        public string minWindowOther(string s, string t)
+        public IEnumerable<string> minWindowOther(string s, string t)
         {
-            if (t.Length > s.Length)
-                return String.Empty;
+            // if (t.Length > s.Length)
+            //     return String.Empty;
 
-            if (String.IsNullOrEmpty(t))
-                return s;
+            // if (String.IsNullOrEmpty(t))
+            //     return s;
 
-            if (String.IsNullOrEmpty(s))
-                return String.Empty;
+            // if (String.IsNullOrEmpty(s))
+            //     return String.Empty;
 
             IDictionary<char, int> map = new Dictionary<char, int>();
             IDictionary<char, int> charsMap = new Dictionary<char, int>();
@@ -151,13 +151,13 @@ namespace problems
                     if (minWindow > i - start + 1)
                     {
                         minWindow = i - start + 1;
-                        // count = 0;
                         startIndex = start;
+                        yield return s.Substring(startIndex, minWindow);
                     }
                 }
             }
 
-            return s.Substring(startIndex, minWindow == Int32.MaxValue ? 0 : minWindow);
+            yield return s.Substring(startIndex, minWindow == Int32.MaxValue ? 0 : minWindow);
         }
     }
 }

@@ -197,17 +197,19 @@ namespace problems
 
             // Problem min window
             var minWindow = new MinWindowProblem();
-            String minOutput = minWindow.minWindowOther("this is a test string", "tist");
-            System.Console.WriteLine($"Min Window: {minOutput}");
-            Debug.Assert(minOutput == "t stri");
+            IEnumerable<String> minOutput = minWindow.minWindowOther("this is a test string", "tist");
+            System.Console.Write("Min Window: ");
+            minOutput.ToList().ForEach(_ => System.Console.WriteLine(_));
+            // Debug.Assert(minOutput == "t stri");
             minOutput = minWindow.minWindowOther("a", "b");
-            System.Console.WriteLine($"Min Window: {minOutput}");
-            Debug.Assert(minOutput == "");
+            System.Console.Write("\nMin Window: ");
+            minOutput.ToList().ForEach(_ => System.Console.WriteLine(_));
+            // Debug.Assert(minOutput == "");
 
             // Remove duplicates recursively
             var remDups = new RemoveDuplicates();
             string dupOutput = remDups.removeDuplicates("careermonk");
-            System.Console.WriteLine($"Remove duplicates: {dupOutput}");
+            System.Console.WriteLine($"\nRemove duplicates: {dupOutput}");
             Debug.Assert(dupOutput == "camonk");
             dupOutput = remDups.removeDuplicates("geeksforgeeg");
             System.Console.WriteLine($"Remove duplicates: {dupOutput}");
