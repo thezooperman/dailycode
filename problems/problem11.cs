@@ -74,5 +74,41 @@ namespace problems
             }
             return this.searchUtil(current);
         }
+
+        private bool recursiveDelete(Node node, string key, int level)
+        {
+            if (node == null)
+                return false;
+
+            if (level == key.Length)
+            {
+                node.IsWord = String.Empty;
+                return (node.Children.Count > 0);
+            }
+
+            var currentLetter = key[level];
+
+            if (!node.Children.ContainsKey(currentLetter))
+                throw new KeyNotFoundException($"Argument -{key} to delete not found");
+
+            var flag = this.recursiveDelete(node.Children[currentLetter], key, level + 1);
+
+            if (flag)
+                return true;
+
+            node.Children.Remove(currentLetter);
+
+            return (node.Children.Count > 0) || (node.IsWord.Length > 0);
+        }
+
+        public int deleteNode(string text)
+        {
+            if (String.IsNullOrEmpty(text))
+                throw new ArgumentNullException("Argument cannot be null");
+
+            var current = this.root;
+
+            return this.recursiveDelete(current, text, 0) == true ? 0 : -1;
+        }
     }
 }

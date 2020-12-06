@@ -117,6 +117,10 @@ namespace problems
             results.ToList().ForEach(x => System.Console.Write(x + " "));
             Debug.Assert(results.SequenceEqual(new string[] { "deer", "deal" }));
 
+            System.Console.Write($"\nProblem 11 - Delete key `deal`: {problem11.deleteNode("deal")}");
+            System.Console.Write("\nProblem 11- Search deleted key(`deal`): ");
+            problem11.Search("deal").ToList().ForEach(_ => System.Console.Write(_));
+
             // Problem 12
             var problem12 = new Problem12();
             var output12 = problem12.problem12(5, new int[] { 1, 3, 5 });
