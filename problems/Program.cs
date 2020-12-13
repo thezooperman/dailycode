@@ -218,6 +218,9 @@ namespace problems
             dupOutput = remDups.removeDuplicates("geeksforgeeg");
             System.Console.WriteLine($"Remove duplicates: {dupOutput}");
             Debug.Assert(dupOutput == "gksfor");
+
+            // Read a large gzip file
+            new ParseGzFiles().readFile().GetAwaiter().GetResult();
         }
     }
 }

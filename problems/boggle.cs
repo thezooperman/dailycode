@@ -55,6 +55,7 @@ namespace problems
                     }
                 }
             }
+            return string.Empty;
         }
 
         private HashSet<Tuple<int, int>> visited = new HashSet<Tuple<int, int>>();
@@ -82,7 +83,7 @@ namespace problems
                     }
                 }
             }
-            return "new";
+            return new List<String>();
         }
     }
 }
