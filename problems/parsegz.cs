@@ -21,17 +21,17 @@ namespace problems
             {
                 using (GZipStream unzip = new GZipStream(fileStream, CompressionMode.Decompress))
                 {
-                    using (BufferedStream bs = new BufferedStream(unzip))
+                    // using (BufferedStream bs = new BufferedStream(unzip))
+                    // {
+                    using (StreamReader reader = new StreamReader(bs))
                     {
-                        using (StreamReader reader = new StreamReader(bs))
-                        {
-                            while (!reader.EndOfStream)
-                                System.Console.WriteLine(await reader.ReadLineAsync());
-                            ///TODO: Read x number of lines
-                            /// if count == x, bulk push into postgres db
-                            /// implement this
-                        }
+                        while (!reader.EndOfStream)
+                            System.Console.WriteLine(await reader.ReadLineAsync());
+                        ///TODO: Read x number of lines
+                        /// if count == x, bulk push into postgres db
+                        /// implement this
                     }
+                    // }
                 }
             }
         }
