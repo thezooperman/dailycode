@@ -27,6 +27,9 @@ namespace problems
                         {
                             while (!reader.EndOfStream)
                                 System.Console.WriteLine(await reader.ReadLineAsync());
+                            ///TODO: Read x number of lines
+                            /// if count == x, bulk push into postgres db
+                            /// implement this
                         }
                     }
                 }
