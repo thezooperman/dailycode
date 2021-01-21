@@ -220,7 +220,20 @@ namespace problems
             Debug.Assert(dupOutput == "gksfor");
 
             // Read a large gzip file
-            new ParseGzFiles().readFile().GetAwaiter().GetResult();
+            // new ParseGzFiles().readFile().GetAwaiter().GetResult();
+
+            // word boggle
+            char[,] matrix = {
+                                { 'o', 'a', 'a', 'n' },
+                                { 'e', 't', 'a', 'e' },
+                                { 'i', 'h', 'k', 'r' },
+                                {'i', 'f', 'l', 'v'}
+                            };
+            string[] words = { "oath", "pea", "eat", "rain" };
+            System.Console.WriteLine("Word boggle:");
+            var boggle = new Boggle().boggle(matrix, words);
+            boggle.ToList().ForEach(_ => System.Console.WriteLine(_ + " "));
+            Debug.Assert(boggle.OrderBy(x => x).ToList().SequenceEqual(new string[] { "eat", "oath" }));
         }
     }
 }

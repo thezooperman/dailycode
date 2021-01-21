@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace problems
@@ -20,45 +21,40 @@ namespace problems
         */
 
 
-        private bool isSafe(char[][] board, int row, int col)
+        private bool isSafe(char[,] board, bool[,] visited, int row, int col)
         {
-            return (0 <= row) && (0 < board.Length) && (0 <= col) && (col < board[0].Length)
-            && (!visited.Contains(Tuple.Create<int, int>(row, col)));
+            return (0 <= row) && (row < board.GetLength(0)) && (0 <= col) && (col < board.GetLength(1))
+            && (!visited[row, col]);
         }
 
-        private String searchUtil(char[][] board, HashSet<string> words, int row, int col, string tmpStr)
+        private void searchUtil(char[,] board, bool[,] visited, HashSet<string> words, int row, int col, string tmpStr, ISet<String> results, int maxLen)
         {
+            if (visited[row, col])
+                return;
+
+            if (tmpStr.Length >= maxLen)
+                return;
+
+            visited[row, col] = true;
+            tmpStr += board[row, col];
+
             if (words.Contains(tmpStr))
             {
                 words.Remove(tmpStr);
-                return tmpStr;
+                results.Add(tmpStr);
             }
 
-            var current = Tuple.Create<int, int>(row, col);
-            if (this.isSafe(board, row, col))
-                visited.Add(current);
-
-            Queue<Tuple<int, int>> queue = new Queue<Tuple<int, int>>();
-            queue.Enqueue(current);
-
-            while (queue.Count > 0)
+            foreach (var direction in directions)
             {
-                var node = queue.Dequeue();
-
-                foreach (var direction in directions)
-                {
-                    int newR = row + direction.Item1, newC = col + direction.Item2;
-                    if (isSafe(board, newR, newC) && words.Contains(tmpStr + board[newR][newC]))
-                    {
-                        var newCord = Tuple.Create(newR, newC);
-                        queue.Enqueue(newCord);
-                    }
-                }
+                int newRow = row + direction.Item1, newCol = col + direction.Item2;
+                if ((isSafe(board, visited, newRow, newCol)) && (!visited[newRow, newCol]))
+                    this.searchUtil(board, visited, words, newRow, newCol, tmpStr, results, maxLen);
             }
-            return string.Empty;
+
+            visited[row, col] = false;
+            tmpStr = "" + tmpStr[tmpStr.Length - 1];
         }
 
-        private HashSet<Tuple<int, int>> visited = new HashSet<Tuple<int, int>>();
         private IList<Tuple<int, int>> directions = new List<Tuple<int, int>>{
             Tuple.Create<int, int>(0, 1),
             Tuple.Create<int, int>(0, -1),
@@ -66,24 +62,24 @@ namespace problems
             Tuple.Create<int, int>(1, 0),
         };
 
-        public IEnumerable<string> boggle(char[][] board, string[] words)
+        public ISet<string> boggle(char[,] board, string[] words)
         {
-            int rows = board.Length, cols = board[0].Length;
+            int rows = board.GetLength(0), cols = board.GetLength(1);
             HashSet<string> lookUp = new HashSet<string>(words);
+            bool[,] visited = new bool[rows, cols];
 
-            string tmpStr = string.Empty;
+            ISet<string> results = new HashSet<String>();
+
+            int maxLen = lookUp.Max(_ => _.Length);
 
             for (int row = 0; row < rows; row++)
             {
                 for (int col = 0; col < cols; col++)
                 {
-                    if (lookUp.Contains(board[row][col].ToString()))
-                    {
-                        tmpStr += board[row][col];
-                    }
+                    this.searchUtil(board, visited, lookUp, row, col, "", results, maxLen);
                 }
             }
-            return new List<String>();
+            return results;
         }
     }
 }
