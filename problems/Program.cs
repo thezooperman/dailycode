@@ -135,7 +135,7 @@ namespace problems
             output13 = prob13.problem13("aabbcc", 2);
             System.Console.Write($"Problem 13: {output13}");
             Debug.Assert(output13 == "aabb" || output13 == "bbcc");
-            output13 = prob13.problem13("aabbcc", 3);
+            output13 = prob13.problem13Another("aabbcc", 3);
             System.Console.Write($"\nProblem 13: {output13}");
             Debug.Assert(output13 == "aabbcc");
             output13 = prob13.problem13("aabbcc", 4);
@@ -230,9 +230,9 @@ namespace problems
                                 {'i', 'f', 'l', 'v'}
                             };
             string[] words = { "oath", "pea", "eat", "rain" };
-            System.Console.WriteLine("Word boggle:");
+            System.Console.Write("Word boggle: ");
             var boggle = new Boggle().boggle(matrix, words);
-            boggle.ToList().ForEach(_ => System.Console.WriteLine(_ + " "));
+            System.Console.WriteLine(string.Join(", ", boggle));
             Debug.Assert(boggle.OrderBy(x => x).ToList().SequenceEqual(new string[] { "eat", "oath" }));
         }
     }
