@@ -29,10 +29,7 @@ namespace problems
 
         private void searchUtil(char[,] board, bool[,] visited, HashSet<string> words, int row, int col, string tmpStr, ISet<String> results, int maxLen)
         {
-            if (visited[row, col])
-                return;
-
-            if (tmpStr.Length >= maxLen)
+            if (visited[row, col] || tmpStr.Length >= maxLen)
                 return;
 
             visited[row, col] = true;
