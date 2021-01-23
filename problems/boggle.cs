@@ -43,7 +43,7 @@ namespace problems
 
             foreach (var direction in directions)
             {
-                int newRow = row + direction.Item1, newCol = col + direction.Item2;
+                int newRow = row + direction.x, newCol = col + direction.y;
                 if ((isSafe(board, visited, newRow, newCol)) && (!visited[newRow, newCol]))
                     this.searchUtil(board, visited, words, newRow, newCol, tmpStr, results, maxLen);
             }
@@ -52,11 +52,12 @@ namespace problems
             tmpStr = "" + tmpStr[tmpStr.Length - 1];
         }
 
-        private IList<Tuple<int, int>> directions = new List<Tuple<int, int>>{
-            Tuple.Create<int, int>(0, 1),
-            Tuple.Create<int, int>(0, -1),
-            Tuple.Create<int, int>(-1, 0),
-            Tuple.Create<int, int>(1, 0),
+        private IList<(int x, int y)> directions = new List<(int x, int y)>
+        {
+            (0, 1),
+            (0, -1),
+            (-1, 0),
+            (1, 0),
         };
 
         public ISet<string> boggle(char[,] board, string[] words)
@@ -72,9 +73,8 @@ namespace problems
             for (int row = 0; row < rows; row++)
             {
                 for (int col = 0; col < cols; col++)
-                {
                     this.searchUtil(board, visited, lookUp, row, col, "", results, maxLen);
-                }
+
             }
             return results;
         }

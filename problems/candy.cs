@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 
 namespace problems
 {
@@ -32,6 +33,7 @@ namespace problems
             // Pre-fill the array with 1
             // every child gets at least 1 candy
             Array.Fill(candies, 1);
+            int sum = 0;
 
             // start with the left to right
             // if the previous value is greater than current, 
@@ -41,9 +43,17 @@ namespace problems
                     candies[i] = candies[i - 1] + 1;
             }
 
-            // start from right to left
+            sum = candies[^1];
 
-            return 0;
+            // start from right to left
+            for (int i = ratings.Length - 2; i >= 0; i--)
+            {
+                if (ratings[i] > ratings[i + 1])
+                    candies[i] = Math.Max(candies[i + 1] + 1, candies[i]);
+                sum += candies[i];
+            }
+
+            return sum;
         }
     }
 }

@@ -234,6 +234,16 @@ namespace problems
             var boggle = new Boggle().boggle(matrix, words);
             System.Console.WriteLine(string.Join(", ", boggle));
             Debug.Assert(boggle.OrderBy(x => x).ToList().SequenceEqual(new string[] { "eat", "oath" }));
+
+            // Candy problem
+            var candy = new Candy().candy(new int[] { 1, 0, 2 });
+            var candyOutput = 5;
+            System.Console.WriteLine($"Minimum Candies: {candy}");
+            Debug.Assert(candy == candyOutput);
+            candy = new Candy().candy(new int[] { 1, 2, 2 });
+            candyOutput = 4;
+            System.Console.WriteLine($"Minimum Candies: {candy}");
+            Debug.Assert(candy == candyOutput);
         }
     }
 }
