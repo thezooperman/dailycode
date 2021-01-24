@@ -18,6 +18,9 @@ namespace problems
             Input: board = [["o","a","a","n"],["e","t","a","e"],["i","h","k","r"],["i","f","l","v"]],
             words = ["oath","pea","eat","rain"]
             Output: ["eat","oath"]
+
+            Runtime: O(4^(N^2)) , 4 directions, and N^2 loop
+            Space: O(N^2) --> m * n or n * n matrix
         */
 
 

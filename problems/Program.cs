@@ -244,6 +244,18 @@ namespace problems
             candyOutput = 4;
             System.Console.WriteLine($"Minimum Candies: {candy}");
             Debug.Assert(candy == candyOutput);
+
+            // Lowest Common Ancestor - BST
+            var lcaBst = new LowestCommonAncestorBST();
+            var lcabstOutput = lcaBst.lca();
+            System.Console.WriteLine($"LCA BST: {lcabstOutput}");
+            Debug.Assert(lcabstOutput == 12);
+
+            // Lowest Common Ancestor - BT
+            var lcaBt = new LowestCommonAncestorBT();
+            var lcabtOutput = lcaBt.lca();
+            System.Console.WriteLine($"LCA BT: {lcabtOutput}");
+            Debug.Assert(lcabtOutput == 2);
         }
     }
 }
