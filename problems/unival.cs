@@ -84,12 +84,12 @@ namespace problems
             return univalUtil(root).Item1;
         }
 
-        private Tuple<int, bool> univalUtil(Node node)
+        private (int Count, bool IsUnival) univalUtil(Node node)
         {
             if (node == null)
-                return Tuple.Create<int, bool>(0, true);
-            Tuple<int, bool> left = univalUtil(node.Left);
-            Tuple<int, bool> right = univalUtil(node.Right);
+                return (0, true);
+            var left = univalUtil(node.Left);
+            var right = univalUtil(node.Right);
             var isUnival = true;
             if (!left.Item2 || !right.Item2)
                 isUnival = false;
@@ -100,9 +100,9 @@ namespace problems
                 if (node.Data != node.Right.Data)
                     isUnival = false;
             if (isUnival)
-                return Tuple.Create<int, bool>(1 + left.Item1 + right.Item1, true);
+                return (1 + left.Count + right.Count, true);
 
-            return Tuple.Create<int, bool>(left.Item1 + right.Item1, false);
+            return (left.Count + right.Count, false);
         }
     }
 }
