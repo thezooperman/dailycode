@@ -32,10 +32,10 @@ namespace problems
             public Graph(int vertices)
             {
                 V = vertices;
-                edges = new List<List<int>>();
+                // edges = new List<List<int>>();
                 Enumerable.Range(0, V)
                           .ToList()
-                          .ForEach(_ => edges.Add(new List<int>()));
+                          .ForEach(_ => (edges ??= new List<List<int>>()).Add(new List<int>()));
             }
 
             public void AddEdge(int v, int w) => this.edges[v].Add(w);
