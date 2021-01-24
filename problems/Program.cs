@@ -262,6 +262,25 @@ namespace problems
             var topoOutput = topo.topologySort();
             System.Console.WriteLine($"Topology sort: {string.Join(',', topoOutput.ToList())}");
             Debug.Assert(topoOutput.SequenceEqual(new int[] { 5, 4, 2, 3, 1, 0 }));
+
+            // LRU
+            var lru = new LRU(4);
+            lru.put(1, 1);
+            lru.put(10, 15);
+            lru.put(15, 10);
+            lru.put(10, 16);
+            System.Console.WriteLine($"LRU cache size: {lru.getCacheSize()}"); // 3
+            System.Console.WriteLine($"Get LRU key-10: {lru.get(10)}"); // 16
+
+            lru.put(12, 15);
+            lru.put(18, 10);
+            System.Console.WriteLine($"LRU cache size: {lru.getCacheSize()}"); // 4
+            lru.put(13, 16);
+            System.Console.WriteLine($"LRU cache size: {lru.getCacheSize()}"); // 4
+            System.Console.WriteLine($"Get LRU key-1: {lru.get(1)}"); // -1
+            System.Console.WriteLine($"Get LRU key-15: {lru.get(15)}"); // -1
+            System.Console.WriteLine($"Get LRU key-18: {lru.get(18)}"); // 10
+            System.Console.WriteLine($"Get LRU key-13: {lru.get(13)}"); // 16
         }
     }
 }
