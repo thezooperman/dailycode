@@ -256,6 +256,12 @@ namespace problems
             var lcabtOutput = lcaBt.lca();
             System.Console.WriteLine($"LCA BT: {lcabtOutput}");
             Debug.Assert(lcabtOutput == 2);
+
+            // Topology Sort
+            var topo = new TopologySort();
+            var topoOutput = topo.topologySort();
+            System.Console.WriteLine($"Topology sort: {string.Join(',', topoOutput.ToList())}");
+            Debug.Assert(topoOutput.SequenceEqual(new int[] { 5, 4, 2, 3, 1, 0 }));
         }
     }
 }
