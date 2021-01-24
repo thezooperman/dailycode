@@ -12,7 +12,7 @@ namespace problems
 
         public int problem19(int n, int k)
         {
-            int[,] costMatrix = new int[n, k]
+            int[,] costMatrix = new int[,]
             {
                 {7, 3, 8, 6, 1, 2},
                 {5, 6, 7, 2, 4, 3},
