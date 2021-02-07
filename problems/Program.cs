@@ -219,9 +219,6 @@ namespace problems
             System.Console.WriteLine($"Remove duplicates: {dupOutput}");
             Debug.Assert(dupOutput == "gksfor");
 
-            // Read a large gzip file
-            // new ParseGzFiles().readFile().GetAwaiter().GetResult();
-
             // word boggle
             char[,] matrix = {
                                 { 'o', 'a', 'a', 'n' },
@@ -281,6 +278,35 @@ namespace problems
             System.Console.WriteLine($"Get LRU key-15: {lru.get(15)}"); // -1
             System.Console.WriteLine($"Get LRU key-18: {lru.get(18)}"); // 10
             System.Console.WriteLine($"Get LRU key-13: {lru.get(13)}"); // 16
+
+            // Number Of Islands
+            int[,] islands = {
+                {0,1},
+                {1,0},
+                {1,1},
+                {1,0}
+            };
+            int connected = new NumberOfIslands().numerOfIslands(islands);
+            System.Console.WriteLine($"Number of Connected islands is: {connected}");
+            Debug.Assert(connected == 1);
+            islands = new int[,]{
+                   {0,1,1,1,0,0,0},
+                   {0,0,1,1,0,1,0}
+            };
+            connected = new NumberOfIslands().numerOfIslands(islands);
+            System.Console.WriteLine($"Number of Connected islands is: {connected}");
+            Debug.Assert(connected == 2);
+
+            // Minimum number of swaps
+            int[] array = { 4, 3, 2, 1 };
+            int minswaps = new MinimumSwapsToSort().minimumSwaps(array);
+            System.Console.WriteLine($"Minimum swap for array -> {string.Join(",", array)} : {minswaps}");
+            Debug.Assert(minswaps == 2);
+
+            array = new int[] { 1, 5, 4, 3, 2 };
+            minswaps = new MinimumSwapsToSort().minimumSwaps(array);
+            System.Console.WriteLine($"Minimum swap for array -> {string.Join(",", array)} : {minswaps}");
+            Debug.Assert(minswaps == 2);
         }
     }
 }
