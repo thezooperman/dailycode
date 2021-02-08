@@ -35,7 +35,9 @@ namespace problems
                 var (l, r) = (array[j], values[j]);
                 if (l != r.Value)
                 {
-                    (values[j], values[r.Key]) = (values[r.Key], values[j]);
+                    // (values[j], values[r.Key]) = (values[r.Key], values[j]);
+                    // or
+                    (array[j], array[r.Key]) = (array[r.Key], array[j]);
                     swap++;
                 }
             }
