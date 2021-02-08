@@ -307,6 +307,34 @@ namespace problems
             minswaps = new MinimumSwapsToSort().minimumSwaps(array);
             System.Console.WriteLine($"Minimum swap for array -> {string.Join(",", array)} : {minswaps}");
             Debug.Assert(minswaps == 2);
+
+            // Snakes and Ladder
+            // int[] positions = {3, 22, 5, 8, 11, 26, 20, 29,
+            //     17, 4, 19, 7, 27, 1, 21, 9};
+            (int rows, int cols) = (5, 6);
+            int steps = rows * cols;
+
+            int[] moves = new int[steps];
+            Enumerable.Range(0, steps).ToList().ForEach(x =>
+            {
+                moves[x] = -1;
+            });
+
+            // Ladders 
+            moves[2] = 21;
+            moves[4] = 7;
+            moves[10] = 25;
+            moves[19] = 28;
+
+            // Snakes  
+            moves[26] = 0;
+            moves[20] = 8;
+            moves[16] = 3;
+            moves[18] = 6;
+
+            int minDistance = new SnakesNLadders().snakesnLadder(moves, steps);
+            System.Console.WriteLine($"Snakes n Ladder: Minimum dice roll needed: {minDistance}");
+            Debug.Assert(minDistance == 3);
         }
     }
 }
