@@ -335,6 +335,34 @@ namespace problems
             int minDistance = new SnakesNLadders().snakesnLadder(moves, steps);
             System.Console.WriteLine($"Snakes n Ladder: Minimum dice roll needed: {minDistance}");
             Debug.Assert(minDistance == 3);
+
+            // ALternating array
+            var altArray = new int[] { 1, 2, 3, 4, 5, 6 };
+            System.Console.Write($"Alternating array output for array - {String.Join(", ", altArray)}");
+            new AlternateArray().alternateArray(altArray);
+            System.Console.WriteLine(" is: " + String.Join(", ", altArray));
+
+            // Minimum platforms
+            int[] arrivals = new int[] { 0900, 0940, 0950, 1100, 1500, 1800 };
+            int[] departures = new int[] { 0910, 1200, 1120, 1130, 1900, 2000 };
+
+            int minPlatforms = new MinimumPlatforms().findPlatforms(arrivals, departures, arrivals.Length);
+            System.Console.WriteLine($"Mininum platforms needed: {minPlatforms}");
+            Debug.Assert(minPlatforms == 3);
+
+            arrivals = new int[] { 0900, 1100, 1235 };
+            departures = new int[] { 1000, 1200, 1240 };
+
+            minPlatforms = new MinimumPlatforms().findPlatforms(arrivals, departures, arrivals.Length);
+            System.Console.WriteLine($"Mininum platforms needed: {minPlatforms}");
+            Debug.Assert(minPlatforms == 1);
+
+            // Reverse array in groups of size K
+            int[] revArray = new int[] { 1, 2, 3, 4, 5 };
+            k = 3;
+            System.Console.WriteLine($"Reverse array: {String.Join(", ", revArray)} in group of \"{k}\"");
+            new ReverseArrays().reverArrays(revArray, k);
+            System.Console.WriteLine($"Reversed array: {String.Join(", ", revArray)}");
         }
     }
 }
