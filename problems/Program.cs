@@ -336,7 +336,7 @@ namespace problems
             System.Console.WriteLine($"Snakes n Ladder: Minimum dice roll needed: {minDistance}");
             Debug.Assert(minDistance == 3);
 
-            // ALternating array
+            // Alternating array
             var altArray = new int[] { 1, 2, 3, 4, 5, 6 };
             System.Console.Write($"Alternating array output for array - {String.Join(", ", altArray)}");
             new AlternateArray().alternateArray(altArray);
@@ -363,6 +363,11 @@ namespace problems
             System.Console.WriteLine($"Reverse array: {String.Join(", ", revArray)} in group of \"{k}\"");
             new ReverseArrays().reverArrays(revArray, k);
             System.Console.WriteLine($"Reversed array: {String.Join(", ", revArray)}");
+
+            // Cycle in undirected graph
+            var hasCycle = new CyclesInUndirectedGraph(5).DetectCycle();
+            System.Console.WriteLine($"Is the Graph cyclic: {hasCycle}");
+            Debug.Assert(hasCycle == true);
         }
     }
 }
