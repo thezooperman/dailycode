@@ -368,6 +368,11 @@ namespace problems
             var hasCycle = new CyclesInUndirectedGraph(5).DetectCycle();
             System.Console.WriteLine($"Is the Graph cyclic: {hasCycle}");
             Debug.Assert(hasCycle == true);
+
+            // Cycle in directed graph
+            var dgCycle = new CycleInDirectedGraph(4).detectCycle();
+            System.Console.WriteLine($"Is the Graph cyclic: {dgCycle}");
+            Debug.Assert(dgCycle == false);
         }
     }
 }
