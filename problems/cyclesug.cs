@@ -53,15 +53,14 @@ namespace problems
             bool[] visited = new bool[_vertices];
             System.Array.Fill(visited, false);
 
-            var result = false;
-
             for (int i = 0; i < _vertices; i++)
             {
                 if (!visited[i])
-                    result = this.hasCycle(i, visited, -1);
+                    if (!this.hasCycle(i, visited, -1))
+                        return false;
             }
 
-            return result;
+            return true;
         }
     }
 }

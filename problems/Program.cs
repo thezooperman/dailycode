@@ -373,6 +373,24 @@ namespace problems
             var dgCycle = new CycleInDirectedGraph(4).detectCycle();
             System.Console.WriteLine($"Is the Graph cyclic: {dgCycle}");
             Debug.Assert(dgCycle == false);
+
+            // Typeahead
+            System.Console.WriteLine("\nTypeahead:");
+            System.Console.WriteLine("==========");
+            var typeAhead = new Typeahead();
+            words = new string[] { "table", "tablet", "mobile", "mob", "mobbed" };
+            var ranks = new int[] { 9, 4, 8, 3, 1 };
+
+            foreach (var (word, rank) in Enumerable.Zip(words, ranks))
+                typeAhead.AddNode(word, rank);
+
+            typeAhead.BuildMostSearchWords(wordLimit: 3);
+
+            System.Console.Write("Most searched words by Rank:");
+            typeAhead.GetMostSearchedWordsByRank().ToList().ForEach(_ => System.Console.Write(_.ToString() + ", "));
+            System.Console.WriteLine("\nStrings starting with mob: " + string.Join(", ", typeAhead.SearchAllChildren("mob")));
+            System.Console.WriteLine("Strings starting with tab: " + string.Join(", ", typeAhead.PrefixSearch("tab")));
+            System.Console.WriteLine("Strings starting with let: " + string.Join(", ", typeAhead.SearchAllChildren("let")));
         }
     }
 }

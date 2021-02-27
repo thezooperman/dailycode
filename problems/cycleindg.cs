@@ -6,7 +6,8 @@ namespace problems
     class CycleInDirectedGraph
     {
         /*
-            Detect cycle in a directed thisAdd           Given a Directed Graph with V vertices
+            Detect cycle in a directed thisAdd           
+            Given a Directed Graph with V vertices
             and E edges, check whether it contains any cycle or not.
         */
 
