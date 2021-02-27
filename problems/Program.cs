@@ -391,6 +391,11 @@ namespace problems
             System.Console.WriteLine("\nStrings starting with mob: " + string.Join(", ", typeAhead.SearchAllChildren("mob")));
             System.Console.WriteLine("Strings starting with tab: " + string.Join(", ", typeAhead.PrefixSearch("tab")));
             System.Console.WriteLine("Strings starting with let: " + string.Join(", ", typeAhead.SearchAllChildren("let")));
+
+            // Problem 20
+            var prob20 = new Problem20().problem20(new int[] { 3, 7, 8, 10 }, new int[] { 99, 1, 8, 101 });
+            System.Console.WriteLine($"Problem 20: {prob20}");
+            Debug.Assert(prob20 == 8);
         }
     }
 }

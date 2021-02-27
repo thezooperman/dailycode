@@ -81,7 +81,7 @@ namespace problems
         public int problem8()
         {
             // return this.wrapper(root);
-            return univalUtil(root).Item1;
+            return univalUtil(root).Count;
         }
 
         private (int Count, bool IsUnival) univalUtil(Node node)
@@ -91,7 +91,7 @@ namespace problems
             var left = univalUtil(node.Left);
             var right = univalUtil(node.Right);
             var isUnival = true;
-            if (!left.Item2 || !right.Item2)
+            if (!left.IsUnival || !right.IsUnival)
                 isUnival = false;
             if (node.Left != null)
                 if (node.Data != node.Left.Data)
