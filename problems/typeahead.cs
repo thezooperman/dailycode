@@ -111,24 +111,22 @@ namespace problems
             return list;
         }
 
-        private IList<QuickNode> buildUtil(Node current, int wordLimit)
+        private SortedDictionary<int, QuickNode> buildUtil(Node current, int wordLimit)
         {
-            var list = new List<QuickNode>();
+            var list = new SortedDictionary<int, QuickNode>();
             if (current == null)
                 return list;
 
             foreach (var child in current.Children)
             {
                 if (!String.IsNullOrEmpty(child.IsWord))
-                    list.Add(new QuickNode { Word = child.IsWord, Rank = child.Rank });
-
-                list.AddRange(buildUtil(child, wordLimit));
+                    list.Add(child.Rank, new QuickNode { Word = child.IsWord, Rank = child.Rank });
+                buildUtil(child, wordLimit).ToList().ForEach(x => list.Add(x.Key, x.Value));
             }
 
             // Store n words with max rank only at each node
             if (current.Children.Count > 0)
-                foreach (QuickNode node in list.OrderByDescending(x => x.Rank).Take(wordLimit))
-                    current.NodeWords.Add(node);
+                list.Take(wordLimit).ToList().ForEach(x => current.NodeWords.Add(x.Value));
 
             return list;
         }

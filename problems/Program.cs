@@ -398,9 +398,12 @@ namespace problems
             Debug.Assert(prob20 == 8);
 
             // Problem 21
-            var prob21 = new Problem21(new int[] { 30, 75, 0, 50, 60, 150 }).problem21();
-            System.Console.WriteLine($"Problem 21: {prob21}");
+            int prob21 = new Problem21(new int[] { 30, 75, 0, 50, 60, 150 }).problem21();
+            System.Console.WriteLine($"Problem 21: {prob21}, for sequence - [30, 75, 0, 50, 60, 150]");
             Debug.Assert(prob21 == 2);
+            prob21 = new Problem21(new int[] { 30, 75, 0, 50, 60, 150, 25, 45 }).problem21();
+            System.Console.WriteLine($"Problem 21: {prob21}, for sequence - [30, 75, 0, 50, 60, 150, 25, 45]");
+            Debug.Assert(prob21 == 3);
         }
     }
 }
