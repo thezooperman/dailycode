@@ -396,6 +396,11 @@ namespace problems
             var prob20 = new Problem20().problem20(new int[] { 3, 7, 8, 10 }, new int[] { 99, 1, 8, 101 });
             System.Console.WriteLine($"Problem 20: {prob20}");
             Debug.Assert(prob20 == 8);
+
+            // Problem 21
+            var prob21 = new Problem21(new int[] { 30, 75, 0, 50, 60, 150 }).problem21();
+            System.Console.WriteLine($"Problem 21: {prob21}");
+            Debug.Assert(prob21 == 2);
         }
     }
 }
