@@ -414,6 +414,17 @@ namespace problems
             sequence = new string[] { "This", "is", "an", "example", "of", "text", "justification" };
             prob28 = new Problem28().problem28(sequence, k: 16);
             System.Console.WriteLine($"Problem 28: for sequence - [{string.Join(", ", sequence)}] - {string.Join(", ", prob28)}");
+
+            // Make maximum sum
+            arr = new int[] { 1, 1, 3 };
+            int probMaxSum = new RemoveMinSum().removeMinSum(arr);
+            System.Console.WriteLine($"Remove Min Sum for sequence - [{string.Join(", ", arr)}] is: {probMaxSum}");
+            Debug.Assert(probMaxSum == 3);
+
+            arr = new int[] { 1, 1, 3, 3, 2, 2, 1, 1, 1 };
+            probMaxSum = new RemoveMinSum().removeMinSum(arr);
+            System.Console.WriteLine($"Remove Min Sum for sequence - [{string.Join(", ", arr)}] is: {probMaxSum}");
+            Debug.Assert(probMaxSum == 11);
         }
     }
 }
