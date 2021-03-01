@@ -404,6 +404,16 @@ namespace problems
             prob21 = new Problem21(new int[] { 30, 75, 0, 50, 60, 150, 25, 45 }).problem21();
             System.Console.WriteLine($"Problem 21: {prob21}, for sequence - [30, 75, 0, 50, 60, 150, 25, 45]");
             Debug.Assert(prob21 == 3);
+
+            // Problem 28
+            string[] sequence = {"the", "quick", "brown", "fox", "jumps", "over", "the",
+           "lazy", "dog"};
+            IEnumerable<string> prob28 = new Problem28().problem28(sequence, k: 16);
+            System.Console.WriteLine($"Problem 28: for sequence - [{string.Join(", ", sequence)}] - {string.Join(", ", prob28)}");
+
+            sequence = new string[] { "This", "is", "an", "example", "of", "text", "justification" };
+            prob28 = new Problem28().problem28(sequence, k: 16);
+            System.Console.WriteLine($"Problem 28: for sequence - [{string.Join(", ", sequence)}] - {string.Join(", ", prob28)}");
         }
     }
 }
