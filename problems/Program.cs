@@ -425,6 +425,11 @@ namespace problems
             probMaxSum = new RemoveMinSum().removeMinSum(arr);
             System.Console.WriteLine($"Remove Min Sum for sequence - [{string.Join(", ", arr)}] is: {probMaxSum}");
             Debug.Assert(probMaxSum == 11);
+
+            // string permutation
+            text = "abca";
+            IEnumerable<string> stringPerm = new StringPermutation().permute(text, "");
+            System.Console.WriteLine($"String permutation - {string.Join(", ", stringPerm)}");
         }
     }
 }
