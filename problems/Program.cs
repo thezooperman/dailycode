@@ -430,6 +430,12 @@ namespace problems
             text = "abca";
             IEnumerable<string> stringPerm = new StringPermutation().permute(text, "");
             System.Console.WriteLine($"String permutation - {string.Join(", ", stringPerm)}");
+
+            // linked list grouping
+            var llGroup = new GroupLinkedListsByIntersectionPoint().getLinkedListsByGroup().ToList();
+            System.Console.WriteLine("Group LinkedList by intersection nodes:");
+            for (int i = 0; i < llGroup.Count; i++)
+                System.Console.WriteLine($"Group {i + 1}: [{string.Join(", ", llGroup[i])}]");
         }
     }
 }
