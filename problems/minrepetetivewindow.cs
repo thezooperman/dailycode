@@ -37,7 +37,7 @@ namespace problems
 
             foreach (int key in map.Keys)
             {
-                if (map[key].Count > maxDegree)
+                if (map[key].Count >= maxDegree)
                 {
                     maxDegree = map[key].Count;
                     if ((map[key][^1] - map[key][0]) + 1 < minWindow)

@@ -446,7 +446,7 @@ namespace problems
             arr = new int[] { 1, 2, 1, 2, 3, 2, 1 };
             minimumRepetitionWindow = new MinimumRepetitionWindow().minimumRepetitionWindow(arr);
             System.Console.WriteLine($"Minimum repetitive window for sequence - [{string.Join(", ", arr)}] is: {minimumRepetitionWindow}");
-            Debug.Assert(minimumRepetitionWindow == 7);
+            Debug.Assert(minimumRepetitionWindow == 5);
         }
     }
 }
