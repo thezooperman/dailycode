@@ -436,6 +436,17 @@ namespace problems
             System.Console.WriteLine("Group LinkedList by intersection nodes:");
             for (int i = 0; i < llGroup.Count; i++)
                 System.Console.WriteLine($"Group {i + 1}: [{string.Join(", ", llGroup[i])}]");
+
+            // minimum repetitive window
+            arr = new int[] { 1, 2, 1, 2, 3 };
+            int minimumRepetitionWindow = new MinimumRepetitionWindow().minimumRepetitionWindow(arr);
+            System.Console.WriteLine($"Minimum repetitive window for sequence - [{string.Join(", ", arr)}] is: {minimumRepetitionWindow}");
+            Debug.Assert(minimumRepetitionWindow == 3);
+
+            arr = new int[] { 1, 2, 1, 2, 3, 2, 1 };
+            minimumRepetitionWindow = new MinimumRepetitionWindow().minimumRepetitionWindow(arr);
+            System.Console.WriteLine($"Minimum repetitive window for sequence - [{string.Join(", ", arr)}] is: {minimumRepetitionWindow}");
+            Debug.Assert(minimumRepetitionWindow == 7);
         }
     }
 }
