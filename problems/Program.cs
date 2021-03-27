@@ -447,6 +447,10 @@ namespace problems
             minimumRepetitionWindow = new MinimumRepetitionWindow().minimumRepetitionWindow(arr);
             System.Console.WriteLine($"Minimum repetitive window for sequence - [{string.Join(", ", arr)}] is: {minimumRepetitionWindow}");
             Debug.Assert(minimumRepetitionWindow == 5);
+
+            // problem 24
+            var prob24 = new Problem24();
+            System.Console.WriteLine($"Problem 24: [{string.Join(", ", prob24.problem24())}]");
         }
     }
 }
