@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace problems
@@ -37,10 +38,22 @@ namespace problems
 
         public void alternateArray(int[] array)
         {
-            int arrayLen = array.Length;
+            (int min, int max) = (array[0], array[array.Length - 1]);
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (i % 2 == 0)
+                    array[i] = max--;
+                else
+                    array[i] = min++;
+            }
+        }
 
+        public IEnumerable<(int x, int y)> alternateArray2(int[] array)
+        {
             for (int s = 0, e = array.Length - 1; s < e; s++, e--)
-                (array[e], array[s]) = (array[s], array[e]);
+            {
+                yield return (array[e], array[s]);
+            }
         }
     }
 }

@@ -23,25 +23,27 @@ namespace problems
 
         public int minimumSwaps(int[] array)
         {
-            IList<KeyValuePair<int, int>> values = new List<KeyValuePair<int, int>>(array.Length);
+            List<(int key, int value)> vector = new List<(int, int)>(array.Length);
             for (int i = 0; i < array.Length; i++)
-                values.Add(new KeyValuePair<int, int>(i, array[i]));
-
-            values = values.OrderBy(kvp => kvp.Value).ToList();
-
-            int swap = 0;
-            for (int j = 0; j < array.Length; j++)
             {
-                var (l, r) = (array[j], values[j]);
-                if (l != r.Value)
-                {
-                    // (values[j], values[r.Key]) = (values[r.Key], values[j]);
-                    // or
-                    (array[j], array[r.Key]) = (array[r.Key], array[j]);
-                    swap++;
-                }
+                vector.Add((array[i], i));
             }
-            return swap;
+
+            vector.Sort();
+
+            int swaps = default(int);
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (i == vector[i].value)
+                    continue;
+                (vector[i], vector[vector[i].value]) = (vector[vector[i].value], vector[i]);
+
+                if (i != vector[i].value)
+                    --i;
+                swaps++;
+            }
+            return swaps;
         }
     }
 }
